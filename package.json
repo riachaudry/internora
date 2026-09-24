@@ -1,0 +1,37 @@
+{
+  "name": "internora",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Internora - Virtual Internships. Real Experience.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed:roadmaps": "tsx scripts/seed-roadmaps.ts",
+    "seed:demo": "tsx scripts/seed-demo.ts",
+    "create:admin": "tsx scripts/create-admin.ts"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.45.4",
+    "date-fns": "^4.1.0",
+    "next": "14.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "resend": "^4.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "14.2",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}

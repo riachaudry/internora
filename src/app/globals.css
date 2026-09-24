@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #101C33;
+  --slate: #3A4A63;
+  --mist: #EEF2F7;
+  --signal: #1F6F5C;
+  --amber: #E0A526;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-white text-ink font-sans antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'ss01';
+  }
+  h1, h2, h3, h4 { @apply font-display tracking-[-.02em]; }
+  :focus-visible { @apply outline-none ring-2 ring-signal ring-offset-2 rounded-md; }
+  ::selection { background: #C9E7DE; }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+  .prose-narrow { @apply max-w-[68ch] leading-relaxed text-slate; }
+  .card { @apply rounded-2xl border border-mist-deep bg-white shadow-card; }
+  .hairline { @apply border-t border-mist-deep; }
+  .field-label { @apply block text-[13px] font-semibold text-ink mb-1.5; }
+  .field {
+    @apply w-full rounded-xl border border-mist-deep bg-white px-3.5 py-2.5 text-[15px]
+           text-ink placeholder:text-slate-light/70 transition
+           focus:border-signal focus:ring-2 focus:ring-signal/20 focus:outline-none;
+  }
+  .field-error { @apply mt-1.5 text-[13px] text-danger; }
+
+  /* Label wrapper: <label class="form-row"><span>Label</span><input/></label> */
+  .form-row { @apply block; }
+  .form-row > span { @apply block text-[13px] font-semibold text-ink mb-1.5; }
+  .form-row > input,
+  .form-row > select,
+  .form-row > textarea {
+    @apply w-full rounded-xl border border-mist-deep bg-white px-3.5 py-2.5 text-[15px]
+           text-ink placeholder:text-slate-light/70 transition
+           focus:border-signal focus:ring-2 focus:ring-signal/20 focus:outline-none;
+  }
+  .form-row > input[readonly] { @apply bg-mist/60 text-slate; }
+  .form-row > small { @apply mt-1.5 block text-[12px] text-slate-light; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* Documents (offer letter, certificate, LOR) print cleanly to PDF. */
+@media print {
+  .no-print { display: none !important; }
+  .doc-sheet { box-shadow: none !important; border: none !important; margin: 0 !important; }
+  @page { size: A4; margin: 14mm; }
+}
